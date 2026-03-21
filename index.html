@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acolhimento</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2b4eff">
+
+<style>
+body{font-family:Arial;background:#f5f6fa;margin:0}
+.tela{display:none;padding:20px}
+.ativa{display:block}
+.card{background:#fff;padding:20px;border-radius:15px;margin-top:20px}
+button{width:100%;padding:12px;margin-top:10px;border:none;border-radius:10px}
+.primary{background:#2b4eff;color:#fff}
+</style>
+</head>
+
+<body>
+
+<div id="inicio" class="tela ativa">
+<div class="card">
+<p>Olá 👋 Qual seu nome?</p>
+<input id="nome">
+<button class="primary" onclick="next('menu')">Continuar</button>
+</div>
+</div>
+
+<div id="menu" class="tela">
+<div class="card">
+<p>Como posso ajudar?</p>
+<button onclick="save('mal estar');next('sintomas')">😷 Me sinto mal</button>
+<button onclick="next('texto')">✍️ Escrever</button>
+</div>
+</div>
+
+<div id="sintomas" class="tela">
+<div class="card">
+<p>O que sente?</p>
+<button onclick="save('dor');next('dor')">🤕 Dor</button>
+<button onclick="save('febre')">🤒 Febre</button>
+</div>
+</div>
+
+<div id="dor" class="tela">
+<div class="card">
+<p>Nível da dor:</p>
+<button onclick="save('leve')">😊 Leve</button>
+<button onclick="save('forte')">😣 Forte</button>
+<button class="primary" onclick="next('final')">Continuar</button>
+</div>
+</div>
+
+<div id="texto" class="tela">
+<div class="card">
+<p>Escreva:</p>
+<textarea id="txt"></textarea>
+<button onclick="save(document.getElementById('txt').value);next('final')" class="primary">Enviar</button>
+</div>
+</div>
+
+<div id="final" class="tela">
+<div class="card">
+<p>✅ Finalizado</p>
+<button onclick="resumo()">📋 Resumo</button>
+</div>
+</div>
+
+<div id="resumo" class="tela">
+<div class="card">
+<p id="saida"></p>
+</div>
+</div>
+
+<script>
+let dados=[];
+function next(id){
+document.querySelectorAll('.tela').forEach(t=>t.classList.remove('ativa'));
+document.getElementById(id).classList.add('ativa');
+}
+function save(i){dados.push(i)}
+function resumo(){
+let nome=document.getElementById('nome').value;
+document.getElementById('saida').innerText="Paciente: "+nome+" | "+dados.join(", ");
+next('resumo')
+}
+if('serviceWorker'in navigator){
+navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
