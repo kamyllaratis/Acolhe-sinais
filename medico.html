@@ -17,24 +17,35 @@
 <button onclick="window.location.href='menu.html'">Voltar</button>
 
 <script>
-const lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+<script>
+function carregarPacientes() {
+  const lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+  const container = document.getElementById("lista");
 
-const container = document.getElementById("lista");
+  container.innerHTML = "";
 
-if (lista.length === 0) {
-  container.innerHTML = "<p>Nenhum paciente cadastrado</p>";
-} else {
-  lista.forEach(p => {
+  lista.forEach((p, index) => {
     container.innerHTML += `
       <div style="border:1px solid black; margin:10px; padding:10px;">
         <b>Nome:</b> ${p.nome}<br>
         <b>Idade:</b> ${p.idade}<br>
-        <b>Sintomas:</b> ${p.sintomas.join(", ")}
+        <b>Sintomas:</b> ${p.sintomas.join(", ")}<br><br>
+
+        <button onclick="removerPaciente(${index})">Excluir</button>
       </div>
     `;
   });
 }
-</script>
 
-</body>
-</html>
+function removerPaciente(index) {
+  let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+
+  lista.splice(index, 1);
+
+  localStorage.setItem("pacientes", JSON.stringify(lista));
+
+  carregarPacientes();
+}
+
+carregarPacientes();
+</script>
