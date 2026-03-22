@@ -54,7 +54,16 @@ window.salvarPaciente = function () {
   }, 500);
 };
 */
+window.login = function () {
+  window.location.href = "menu.html";
+};
+
+window.cadastrar = function () {
+  alert("Cadastro ok (temporário)");
+};
+
 window.salvarPaciente = function () {
-  alert("funcionando agora!");
+  alert("Paciente enviado");
+};
 };
   
