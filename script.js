@@ -53,4 +53,5 @@ window.salvarPaciente = async function () {
   }
 
   alert("Paciente enviado com sucesso!");
+  window.location.href = "menu.html";
 };
