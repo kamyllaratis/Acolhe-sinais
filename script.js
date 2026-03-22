@@ -39,20 +39,19 @@ window.cadastrar = async function () {
     alert(e.message);
   }
 };
-window.salvarPaciente = async function () {
+window.salvarPaciente = function () {
   const nome = document.getElementById("nome")?.value;
-
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-  let sintomas = [];
-
-  checkboxes.forEach(cb => sintomas.push(cb.value));
 
   if (!nome) {
     alert("Digite o nome");
     return;
-setTimeout(() => {
-  window.location.href = "menu.html";
-}, 500);
   }
+
+  alert("Paciente enviado!");
+
+  setTimeout(() => {
+    window.location.href = "menu.html";
+  }, 500);
+};
 
   
