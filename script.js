@@ -68,6 +68,7 @@ window.login = function () {
 window.cadastrar = function () {
   alert("Cadastro ok (temporário)");
 };
+
 window.salvarPaciente = function () {
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
@@ -83,3 +84,6 @@ window.salvarPaciente = function () {
     window.location.href = "menu.html";
   }, 200);
 };
+  
+  
+    
