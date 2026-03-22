@@ -68,7 +68,6 @@ window.login = function () {
 window.cadastrar = function () {
   alert("Cadastro ok (temporário)");
 };
-
 window.salvarPaciente = function () {
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
@@ -78,12 +77,6 @@ window.salvarPaciente = function () {
     return;
   }
 
-  alert("Paciente enviado com sucesso!");
-
-  setTimeout(function () {
-    window.location.href = "menu.html";
-  }, 200);
+  // vai direto sem travar
+  window.location.href = "medico.html";
 };
-  
-  
-    
