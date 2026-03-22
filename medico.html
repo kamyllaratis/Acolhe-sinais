@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modo Médico</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Modo Médico</title>
 </head>
 <body>
-
-<div class="container">
 
 <h2>🩺 Modo Médico</h2>
 
@@ -20,28 +16,24 @@
 
 <button onclick="window.location.href='menu.html'">Voltar</button>
 
-</div>
-
 <script>
-function carregarPacientes() {
-  const lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+const lista = JSON.parse(localStorage.getItem("pacientes")) || [];
 
-  const container = document.getElementById("lista");
+const container = document.getElementById("lista");
 
-  container.innerHTML = "";
-
-  lista.forEach((p, index) => {
+if (lista.length === 0) {
+  container.innerHTML = "<p>Nenhum paciente cadastrado</p>";
+} else {
+  lista.forEach(p => {
     container.innerHTML += `
       <div style="border:1px solid black; margin:10px; padding:10px;">
-        <strong>Nome:</strong> ${p.nome} <br>
-        <strong>Idade:</strong> ${p.idade} <br>
-        <strong>Sintomas:</strong> ${p.sintomas.join(", ")}
+        <b>Nome:</b> ${p.nome}<br>
+        <b>Idade:</b> ${p.idade}<br>
+        <b>Sintomas:</b> ${p.sintomas.join(", ")}
       </div>
     `;
   });
 }
-
-carregarPacientes();
 </script>
 
 </body>
