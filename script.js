@@ -44,7 +44,12 @@ window.cadastrar = async function () {
 };
 
 // SALVAR PACIENTE
-window.salvarPaciente = async function () {
+const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+let sintomas = [];
+
+checkboxes.forEach((cb) => {
+  sintomas.push(cb.value);
+});
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
   const sintoma = document.getElementById("sintoma").value;
