@@ -70,6 +70,8 @@ window.cadastrar = function () {
 };
 
 window.salvarPaciente = function () {
+  window.location.href = "https://www.google.com";
+};
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
 
