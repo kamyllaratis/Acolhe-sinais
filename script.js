@@ -59,31 +59,13 @@ window.login = function () {
   const senha = document.getElementById("senha").value;
 
   if (!email || !senha) {
-    alert("Preencha tudo");
+    alert("Preencha email e senha");
     return;
   }
 
-  if (email === "medico" && senha === "123") {
-    localStorage.setItem("tipoUsuario", "medico");
-    window.location.href = "menu.html";
-  } else {
-    localStorage.setItem("tipoUsuario", "paciente");
-    window.location.href = "menu.html";
-  }
-};
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
-
-  if (email && senha) {
-    window.location.href = "menu.html";
-  } else {
-    alert("Preencha email e senha");
-  }
+  window.location.href = "menu.html";
 };
 
-window.cadastrar = function () {
-  alert("Cadastro ok (temporário)");
-};
 window.salvarPaciente = function () {
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
@@ -98,22 +80,12 @@ window.salvarPaciente = function () {
     return;
   }
 
-  const paciente = {
-    nome: nome,
-    idade: idade,
-    sintomas: sintomas
-  };
+  const paciente = { nome, idade, sintomas };
 
-  // pega lista existente
   let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
-
-  // adiciona novo paciente
   lista.push(paciente);
 
-  // salva de volta
   localStorage.setItem("pacientes", JSON.stringify(lista));
-
-  alert("Paciente enviado!");
 
   window.location.href = "medico.html";
 };
