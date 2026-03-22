@@ -74,9 +74,12 @@ window.salvarPaciente = function () {
   const idade = document.getElementById("idade").value;
 
   if (!nome || !idade) {
-    alert("Preencha os dados do paciente");
+    alert("Preencha nome e idade");
     return;
   }
 
   alert("Paciente enviado com sucesso!");
+
+  // vai para o menu
+  window.location.href = "menu.html";
 };
