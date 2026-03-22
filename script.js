@@ -55,7 +55,14 @@ window.salvarPaciente = function () {
 };
 */
 window.login = function () {
-  window.location.href = "menu.html";
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  if (email && senha) {
+    window.location.href = "menu.html";
+  } else {
+    alert("Preencha email e senha");
+  }
 };
 
 window.cadastrar = function () {
@@ -63,7 +70,13 @@ window.cadastrar = function () {
 };
 
 window.salvarPaciente = function () {
-  alert("Paciente enviado");
+  const nome = document.getElementById("nome").value;
+  const idade = document.getElementById("idade").value;
+
+  if (!nome || !idade) {
+    alert("Preencha os dados do paciente");
+    return;
+  }
+
+  alert("Paciente enviado com sucesso!");
 };
-};
-  
