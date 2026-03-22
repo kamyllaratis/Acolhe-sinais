@@ -72,11 +72,32 @@ window.salvarPaciente = function () {
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
 
+  const sintomas = [];
+  document.querySelectorAll(".sintomas input:checked").forEach(item => {
+    sintomas.push(item.value);
+  });
+
   if (!nome || !idade) {
     alert("Preencha nome e idade");
     return;
   }
 
-  // vai direto sem travar
+  const paciente = {
+    nome: nome,
+    idade: idade,
+    sintomas: sintomas
+  };
+
+  // pega lista existente
+  let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+
+  // adiciona novo paciente
+  lista.push(paciente);
+
+  // salva de volta
+  localStorage.setItem("pacientes", JSON.stringify(lista));
+
+  alert("Paciente enviado!");
+
   window.location.href = "medico.html";
 };
