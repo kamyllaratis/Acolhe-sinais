@@ -82,3 +82,4 @@ window.salvarPaciente = function () {
   setTimeout(function () {
     window.location.href = "menu.html";
   }, 200);
+};
