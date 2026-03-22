@@ -50,8 +50,7 @@ window.salvarPaciente = async function () {
   if (!nome) {
     alert("Digite o nome");
     return;
+  window.location.href = "menu.html";
   }
 
-  alert("Paciente enviado com sucesso!");
-  window.location.href = "menu.html";
-};
+  
