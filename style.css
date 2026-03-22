@@ -1,6 +1,5 @@
 body {
   font-family: Arial;
-  text-align: center;
   background: #e6f2ff;
   margin: 0;
   padding: 20px;
@@ -9,27 +8,41 @@ body {
 .container {
   max-width: 400px;
   margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
+h2, h3 {
+  text-align: center;
   color: #0066cc;
-  font-size: 28px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.sintomas {
+  text-align: left;
+  margin: 10px 0;
+}
+
+.sintomas label {
+  display: block;
+  margin: 5px 0;
 }
 
 button {
   width: 100%;
   padding: 15px;
-  margin: 10px 0;
+  margin-top: 10px;
   background: #0099ff;
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 18px;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  font-size: 16px;
 }
