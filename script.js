@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+/*import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -53,5 +53,8 @@ window.salvarPaciente = function () {
     window.location.href = "menu.html";
   }, 500);
 };
-
+*/
+window.salvarPaciente = function () {
+  alert("funcionando agora!");
+};
   
