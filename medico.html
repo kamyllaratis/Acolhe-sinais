@@ -1,3 +1,11 @@
+<script>
+const tipo = localStorage.getItem("tipoUsuario");
+
+if (tipo !== "medico") {
+  alert("Acesso restrito ao médico");
+  window.location.href = "login.html";
+}
+</script>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
