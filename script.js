@@ -39,3 +39,18 @@ window.cadastrar = async function () {
     alert(e.message);
   }
 };
+window.salvarPaciente = async function () {
+  const nome = document.getElementById("nome")?.value;
+
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  let sintomas = [];
+
+  checkboxes.forEach(cb => sintomas.push(cb.value));
+
+  if (!nome) {
+    alert("Digite o nome");
+    return;
+  }
+
+  alert("Paciente enviado com sucesso!");
+};
