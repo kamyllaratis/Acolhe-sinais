@@ -12,16 +12,37 @@
 
 <h2>🩺 Modo Médico</h2>
 
-<h3>Pacientes Recebidos</h3>
+<h3>Pacientes</h3>
 
-<div id="lista">
-  <!-- Aqui vai aparecer os pacientes -->
+<div id="lista"></div>
+
+<br>
+
+<button onclick="window.location.href='menu.html'">Voltar</button>
+
 </div>
 
-<button onclick="window.location.href='menu.html'">Voltar ao Menu</button>
+<script>
+function carregarPacientes() {
+  const lista = JSON.parse(localStorage.getItem("pacientes")) || [];
 
-</div>
+  const container = document.getElementById("lista");
 
-<script src="script.js"></script>
+  container.innerHTML = "";
+
+  lista.forEach((p, index) => {
+    container.innerHTML += `
+      <div style="border:1px solid black; margin:10px; padding:10px;">
+        <strong>Nome:</strong> ${p.nome} <br>
+        <strong>Idade:</strong> ${p.idade} <br>
+        <strong>Sintomas:</strong> ${p.sintomas.join(", ")}
+      </div>
+    `;
+  });
+}
+
+carregarPacientes();
+</script>
+
 </body>
 </html>
