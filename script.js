@@ -68,10 +68,7 @@ window.login = function () {
 window.cadastrar = function () {
   alert("Cadastro ok (temporário)");
 };
-
 window.salvarPaciente = function () {
-  window.location.href = "https://www.google.com";
-};
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
 
@@ -82,6 +79,6 @@ window.salvarPaciente = function () {
 
   alert("Paciente enviado com sucesso!");
 
-  // vai para o menu
-  window.location.href = "menu.html";
-};
+  setTimeout(function () {
+    window.location.href = "menu.html";
+  }, 200);
