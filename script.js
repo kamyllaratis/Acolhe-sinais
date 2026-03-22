@@ -58,6 +58,22 @@ window.login = function () {
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
 
+  if (!email || !senha) {
+    alert("Preencha tudo");
+    return;
+  }
+
+  if (email === "medico" && senha === "123") {
+    localStorage.setItem("tipoUsuario", "medico");
+    window.location.href = "menu.html";
+  } else {
+    localStorage.setItem("tipoUsuario", "paciente");
+    window.location.href = "menu.html";
+  }
+};
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
   if (email && senha) {
     window.location.href = "menu.html";
   } else {
