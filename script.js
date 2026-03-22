@@ -52,7 +52,7 @@ checkboxes.forEach((cb) => {
 });
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
-  const sintoma = document.getElementById("sintoma").value;
+  const sintomas =sdocument.getElementById("sintoma").value;
 
   let risco = "Normal";
 
