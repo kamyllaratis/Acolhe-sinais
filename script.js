@@ -66,6 +66,10 @@ window.login = function () {
   window.location.href = "menu.html";
 };
 
+window.cadastrar = function () {
+  alert("Conta criada!");
+};
+
 window.salvarPaciente = function () {
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
@@ -86,6 +90,8 @@ window.salvarPaciente = function () {
   lista.push(paciente);
 
   localStorage.setItem("pacientes", JSON.stringify(lista));
+
+  alert("Paciente salvo!");
 
   window.location.href = "medico.html";
 };
