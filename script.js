@@ -56,15 +56,11 @@ window.salvarPaciente = function () {
 */
 const medicoEmail = "medico@hospital.com";
 const medicoSenha = "1234";
-window.login = function () {
-  const medicoEmail = "medico@hospital.com";
-const medicoSenha = "1234";
 
 // LOGIN
 window.login = function () {
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
-
   const tipo = localStorage.getItem("tipoEscolhido");
 
   if (!email || !senha) {
@@ -72,7 +68,7 @@ window.login = function () {
     return;
   }
 
-  // MÉDICO
+  // LOGIN MÉDICO
   if (tipo === "medico") {
     if (email === medicoEmail && senha === medicoSenha) {
       localStorage.setItem("tipoUsuario", "medico");
@@ -83,7 +79,7 @@ window.login = function () {
     return;
   }
 
-  // PACIENTE
+  // LOGIN PACIENTE
   localStorage.setItem("tipoUsuario", "paciente");
   window.location.href = "paciente.html";
 };
@@ -91,54 +87,10 @@ window.login = function () {
 // CADASTRO
 window.cadastrar = function () {
   alert("Conta criada!");
+  window.location.href = "login.html";
 };
 
 // SALVAR PACIENTE
-window.salvarPaciente = function () {
-  const nome = document.getElementById("nome").value;
-  const idade = document.getElementById("idade").value;
-
-  const sintomas = [];
-  document.querySelectorAll(".sintomas input:checked").forEach(item => {
-    sintomas.push(item.value);
-  });
-
-  if (!nome || !idade) {
-    alert("Preencha nome e idade");
-    return;
-  }
-
-  const paciente = { nome, idade, sintomas };
-
-  let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
-  lista.push(paciente);
-
-  localStorage.setItem("pacientes", JSON.stringify(lista));
-
-  alert("Paciente salvo!");
-
-  window.location.href = "medico.html";
-};
-  }
-
-  localStorage.setItem("tipoUsuario", "paciente");
-  window.location.href = "menu.html";
-};
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
-
-  if (!email || !senha) {
-    alert("Preencha email e senha");
-    return;
-  }
-
-  window.location.href = "menu.html";
-};
-
-window.cadastrar = function () {
-  alert("Conta criada!");
-};
-
 window.salvarPaciente = function () {
   const nome = document.getElementById("nome").value;
   const idade = document.getElementById("idade").value;
