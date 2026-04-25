@@ -2,16 +2,21 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Modo</title>
 </head>
 <body>
 
 <h2>Escolha o modo</h2>
 
-<button onclick="window.location.href='paciente.html'">Paciente</button>
-<button onclick="window.location.href='medico.html'">Médico</button>
+<button onclick="irLogin('paciente')">Paciente</button>
+<button onclick="irLogin('medico')">Médico</button>
+
+<script>
+function irLogin(tipo){
+  localStorage.setItem("tipoEscolhido", tipo);
+  window.location.href = "login.html";
+}
+</script>
 
 </body>
 </html>
