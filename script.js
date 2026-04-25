@@ -54,7 +54,26 @@ window.salvarPaciente = function () {
   }, 500);
 };
 */
+const medicoEmail = "medico@hospital.com";
+const medicoSenha = "1234";
 window.login = function () {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  if (!email || !senha) {
+    alert("Preencha email e senha");
+    return;
+  }
+
+  if (email === medicoEmail && senha === medicoSenha) {
+    localStorage.setItem("tipoUsuario", "medico");
+    window.location.href = "menu.html";
+    return;
+  }
+
+  localStorage.setItem("tipoUsuario", "paciente");
+  window.location.href = "menu.html";
+};
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
 
