@@ -8,8 +8,7 @@
 <h2>🩺 Pacientes</h2>
 
 <div id="lista"></div>
-
-<script>
+  <script>
 const tipo = localStorage.getItem("tipoUsuario");
 
 if (tipo !== "medico") {
@@ -23,9 +22,45 @@ function carregar() {
 
   div.innerHTML = "";
 
-  lista.forEach(p => {
-    div.innerHTML += `<p>${p.nome} - ${p.idade} - ${p.sintomas.join(", ")}</p>`;
+  lista.forEach((p, index) => {
+    div.innerHTML += `
+      <div class="card">
+        <b>Nome:</b> ${p.nome}<br>
+        <b>Idade:</b> ${p.idade}<br>
+        <b>Sintomas:</b> ${p.sintomas.join(", ")}<br><br>
+
+        <textarea placeholder="Evolução..." onchange="salvarEvolucao(${index}, this.value)">
+          ${p.evolucao || ""}
+        </textarea>
+
+        <input placeholder="Resultado de exame" 
+        onchange="salvarResultado(${index}, this.value)" 
+        value="${p.resultado || ""}">
+
+        <br><br>
+        <button onclick="remover(${index})">Excluir</button>
+      </div>
+    `;
   });
+}
+
+function salvarEvolucao(index, texto) {
+  let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+  lista[index].evolucao = texto;
+  localStorage.setItem("pacientes", JSON.stringify(lista));
+}
+
+function salvarResultado(index, texto) {
+  let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+  lista[index].resultado = texto;
+  localStorage.setItem("pacientes", JSON.stringify(lista));
+}
+
+function remover(index) {
+  let lista = JSON.parse(localStorage.getItem("pacientes")) || [];
+  lista.splice(index, 1);
+  localStorage.setItem("pacientes", JSON.stringify(lista));
+  carregar();
 }
 
 carregar();
