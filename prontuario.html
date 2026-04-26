@@ -124,3 +124,34 @@
 </div>
 
 <button onclick="salvarProntuario()">Salvar Prontuário</button>
+<script>
+function salvarProntuario() {
+
+  const prontuario = {
+    nome: document.querySelector("input[placeholder='Nome']").value,
+    idade: document.querySelector("input[placeholder='Idade']").value,
+    sexo: document.querySelector("input[placeholder='Sexo']").value,
+    escolaridade: document.querySelector("input[placeholder='Escolaridade']").value,
+    profissao: document.querySelector("input[placeholder='Profissão']").value,
+
+    queixa: document.querySelector("textarea[placeholder='O que trouxe você aqui hoje?']").value,
+
+    sinaisVitais: document.querySelector("input[placeholder='Sinais vitais']").value,
+    estadoGeral: document.querySelector("input[placeholder='Estado geral']").value,
+    dor: document.querySelector("input[placeholder='Dor (0-10)']").value,
+
+    plano: document.querySelector("textarea[placeholder='Plano de cuidado']").value
+  };
+
+  let lista = JSON.parse(localStorage.getItem("prontuarios")) || [];
+
+  lista.push(prontuario);
+
+  localStorage.setItem("prontuarios", JSON.stringify(lista));
+
+  alert("Prontuário salvo com sucesso!");
+}
+</script>
+
+</body>
+</html>
