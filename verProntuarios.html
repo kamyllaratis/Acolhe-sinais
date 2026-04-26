@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prontuários</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>📋 Prontuários Salvos</h2>
+
+<div id="lista"></div>
+
+<script>
+function carregarProntuarios() {
+  const lista = JSON.parse(localStorage.getItem("prontuarios")) || [];
+  const div = document.getElementById("lista");
+
+  div.innerHTML = "";
+
+  lista.forEach((p, i) => {
+    div.innerHTML +=       <div class="card">         <b>Nome:</b> ${p.nome}<br>         <b>Idade:</b> ${p.idade}<br>         <b>Sexo:</b> ${p.sexo}<br>         <b>Queixa:</b> ${p.queixa}<br>         <b>Sinais vitais:</b> ${p.sinaisVitais}<br>         <b>Plano:</b> ${p.plano}<br><br>          <button onclick="remover(${i})">Excluir</button>       </div>    ;
+  });
+}
+
+function remover(index) {
+  let lista = JSON.parse(localStorage.getItem("prontuarios")) || [];
+  lista.splice(index, 1);
+  localStorage.setItem("prontuarios", JSON.stringify(lista));
+  carregarProntuarios();
+}
+
+carregarProntuarios();
+</script>
+
+</body>
+</html>
