@@ -116,3 +116,13 @@ window.salvarPaciente = function () {
 
   window.location.href = "medico.html";
 };
+window.onload = function () {
+  const tipo = localStorage.getItem("tipoEscolhido");
+
+  if (tipo === "medico") {
+    const botao = document.getElementById("btnCadastro");
+    if (botao) {
+      botao.style.display = "none";
+    }
+  }
+};
