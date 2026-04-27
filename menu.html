@@ -2,14 +2,56 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+
+  <!-- ESSENCIAL pra corrigir zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>Modo</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f2f2;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    .container {
+      margin-top: 30px;
+      padding: 20px;
+    }
+
+    button {
+      width: 80%;
+      max-width: 300px;
+      padding: 15px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
+
 <body>
 
 <h2>Escolha o modo</h2>
 
-<button onclick="irLogin('paciente')">Paciente</button>
-<button onclick="irLogin('medico')">Médico</button>
+<div class="container">
+  <button onclick="irLogin('paciente')">Paciente</button>
+  <button onclick="irLogin('medico')">Médico</button>
+</div>
 
 <script>
 function irLogin(tipo){
