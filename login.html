@@ -1,18 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<title>Login</title>
+  <meta charset="UTF-8">
+
+  <!-- Corrige zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Login</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f2f2;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+    }
+  </style>
 </head>
+
 <body>
+
+<div class="container">
 
 <h2>Login</h2>
 
-<input type="email" id="email" placeholder="Email">
-<input type="senha" id="senha" placeholder="Senha">
+<input type="email" id="email" placeholder="Email" required>
+<input type="password" id="senha" placeholder="Senha" required>
 
 <button onclick="login()">Entrar</button>
-<button id="btnCadastro" onclick="window.location.href='cadastro.html'">Cadastrar</button>
+
+<button onclick="irCadastro()">Cadastrar</button>
+
+</div>
+
+<script>
+function irCadastro() {
+  window.location.href = "cadastro.html";
+}
+</script>
 
 <script src="script.js"></script>
 
