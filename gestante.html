@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Área da Gestante</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>👩‍🍼 Área da Gestante</h1>
+
+<p>Bem-vinda! Escolha uma opção abaixo:</p>
+
+<!-- BOTÕES PRINCIPAIS -->
+<button onclick="irSintomas()">🤰 Avaliar Sintomas</button>
+<button onclick="irExames()">🧪 Ver Exames</button>
+
+<hr>
+
+<!-- ACESSIBILIDADE -->
+<h2>🤟 Acessibilidade (Libras)</h2>
+
+<p>Clique para ver explicação em Libras:</p>
+
+<button onclick="mostrarLibras()">▶️ Ver em Libras</button>
+
+<br><br>
+
+<video id="videoLibras" width="300" controls class="hidden">
+  <source src="videos/libras-gestante.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<!-- INFORMAÇÕES VISUAIS (IMPORTANTE PARA SURDOS) -->
+<h2>📌 Informações Importantes</h2>
+
+<div class="risco verde">
+  🟢 Pré-natal em dia
+</div>
+
+<div class="risco amarelo">
+  🟡 Fique atenta a sintomas diferentes
+</div>
+
+<div class="risco vermelho">
+  🔴 Procure atendimento em caso de dor forte ou sangramento
+</div>
+
+<script>
+// IR PARA SINTOMAS
+function irSintomas() {
+  window.location.href = "sintomas.html";
+}
+
+// IR PARA EXAMES
+function irExames() {
+  window.location.href = "exames.html";
+}
+
+// MOSTRAR VÍDEO LIBRAS
+function mostrarLibras() {
+  const video = document.getElementById("videoLibras");
+  video.classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>
